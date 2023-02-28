@@ -1,0 +1,92 @@
+      case FL_KEYBOARD:
+         int key = Fl::event_key();
+         int movementIncrement =20
+         switch (key)
+         {
+            case FL_Left:
+               x -= movementIncrement;
+               redraw();
+               return 1;
+
+            case FL_Right:
+               x += movementIncrement;
+               redraw();
+               return 1;
+               
+               
+               
+               
+               	if(instanceof<Brick>(object)) {
+		cout << "ball is an instance of the class Ball" << endl;
+		object->hit();
+	}
+
+	if (ball->getX() >= Block*object->getX() && ball->getX() <= Block*object->getX()+20 && ball->getY() >= Block*object->getY() && ball->getY() <= Block*object->getY()+20){
+		if(instanceof<Brick>(object)) {
+			cout << "ball is an instance of the class Ball" << endl;
+			object->hit();
+		}
+	}
+	
+	
+	
+	
+	
+	
+	// of the ball is 40 units above ground    -> checking if the paddle is there
+			if (this->ball->getY()==maxymalney-40){
+				//if the ball x coordinate is larger than the plank x coordinate (-10) because of the radius of the ball
+				// and the ball x coordinate is smaller than the plank x coordinate + it's length and the radius of the ball
+				// that means the ball is hitting the plank and thus the speedY should change to UP
+				double difference = (this->ball->getX()) - (this->plank->getX()+76);
+				if(this->ball->getX()>=(this->plank->getX()-10) && (this->ball->getX()<=(this->plank->getX()+100))){
+					this->ball->speedY=-this->ball->speedY;
+					cout<<"ball:"<<this->ball->getX()<<endl;
+					cout<<"plank right border"<<(this->plank->getX()+76)<<endl;
+					cout<<difference<<endl<<endl;
+					//if ((this->ball->getX()>= this->plank->getX()-10) && (this->ball->getX()<= this->plank->getX()+14)){
+					if ((this->ball->getX()<= this->plank->getX()+14)){
+						// going from left to right
+						if (this->ball->speedX > 0){
+							this->ball->speedX+=2.1;   // should calculate 22.5 degrees but the computer crashes when I try to calculate
+							/*
+							degrees-=22.5;
+							double tangens=tan(degrees);
+							this->ball->speedX= b/tangens;
+							*/
+						}
+						//going from right to left or at 90 degrees
+						else{
+							this->ball->speedX-=2.1; // should calculate 22.5 degrees but the computer crashes when I try to calculate
+							/*
+							degrees+=22.5;
+							double tangens=tan(degrees);
+							this->ball->speedX= b/tangens;
+							*/
+						}
+					}
+					//else if ((this->ball->getX()>= this->plank->getX()+86) && (this->ball->getX()<= this->plank->getX()+110)){
+					//else if ((this->ball->getX()<= this->plank->getX()+14)){
+					else if ((this->ball->getX()>= this->plank->getX()+76)){
+						this->ball->color(FL_GREEN);
+						//going from left to right
+						if (this->ball->speedX > 0){
+							this->ball->speedX-=2.1;   // should calculate the degrees
+						}
+						// going from right to left or at 90 degrees
+						else{
+							this->ball->speedX+=2.1; // should calculate the degrees
+						}
+					}
+				}
+				else{
+					//that means the ball fall on the ground and thus one life is subtracted
+					this->life-=1;
+					// and reposition ball to the starting position and wait for user input to start the ball movement again
+					this->ball->speedY=0;
+					this->ball->speedX=0;
+					this->ball->move(maxymalnex/2-10, maxymalney-45);
+
+				}
+		}
+	}

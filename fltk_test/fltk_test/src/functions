@@ -1,0 +1,45 @@
+/*
+
+void TheWindow::bounce_bricks(){
+	if (this->ball->getY() < 300){
+		for (Block *brick : this->bricks->getBricks()){
+			// bottom and top wall
+			if (this->ball->getX()<=((brick->getX())+40) && this->ball->getX()>=brick->getX()){
+				if(this->ball->getY()==brick->getY()+40 || this->ball->getY()+20==brick->getY()){
+					brick->hit();
+					this->ball->speedY=-this->ball->speedY;
+					break;
+				}
+			}
+			// right and left wall
+			else if (this->ball->getY()<=brick->getY()+40 && this->ball->getY()>=brick->getY()){
+				if (this->ball->getX()==(brick->getX())+40 || this->ball->getX()+20==(brick->getX()))
+				brick->hit();
+				this->ball->speedX=-this->ball->speedX;
+				break;
+			}
+		}
+	}
+}
+
+
+*/
+
+
+
+/*
+void Block::hit(){
+		// if the brick is hit, set its hardness to a lower one and change its color so that it correspond the hardness, then show the brick
+		// if event == ball touched brick:
+			this->hardness-=1;
+			this -> color(colors[hardness]);
+			this-> show();
+
+			if(hardness==0){
+				this->deactivate();
+				this->INACTIVE;
+				this->position(640,480);
+				//hitted->do_widget_deletion();
+		}
+}
+*/
